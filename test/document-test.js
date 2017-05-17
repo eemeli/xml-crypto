@@ -14,3 +14,9 @@ exports['test with a document '] = function (test) {
   test.done();
 };
 
+exports['test with broken xml'] = function (test) {
+  try {
+    var doc = new xmldom.DOMParser().parseFromString('<a');
+  } catch (e) {}
+  test.done();
+}
